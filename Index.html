@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EasyEarnBD - Watch, Play & Earn</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #2ecc71;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav {
+      background-color: #27ae60;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #27ae60;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    .task-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .task-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .wallet-balance {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>EasyEarnBD</header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Play Games</a>
+    <a href="#">Watch Videos</a>
+    <a href="#">Surveys</a>
+    <a href="#">Wallet</a>
+  </nav>
+
+  <main>
+    <div class="card" id="login-section">
+      <h2>Login</h2>
+      <input type="email" id="email" placeholder="Enter your email" style="width:100%;padding:8px;margin-bottom:10px;" />
+      <input type="password" id="password" placeholder="Enter your password" style="width:100%;padding:8px;margin-bottom:10px;" />
+      <button onclick="login()">Login</button>
+      <p style="margin-top:15px;">Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </div>
+
+    <div class="card" id="signup-section" style="display:none;">
+      <h2>Sign Up</h2>
+      <input type="email" id="signup-email" placeholder="Enter your email" style="width:100%;padding:8px;margin-bottom:10px;" />
+      <input type="password" id="signup-password" placeholder="Enter your password" style="width:100%;padding:8px;margin-bottom:10px;" />
+      <button onclick="signup()">Sign Up</button>
+      <p style="margin-top:15px;">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+
+    <div class="card" id="dashboard-section" style="display:none;">
+      <h2>Dashboard</h2>
+      <p class="wallet-balance">Wallet Balance: ৳<span id="wallet-balance">0</span></p>
+
+      <ul class="task-list">
+        <li>🎮 Games Played: 0/3 — <button onclick="alert('Game section coming soon!')">Play Games</button></li>
+        <li>🎥 Videos Watched: 0/5 — <button onclick="alert('Video section coming soon!')">Watch Videos</button></li>
+        <li>📋 Surveys Completed: 0/2 — <button onclick="alert('Surveys section coming soon!')">Take Surveys</button></li>
+        <li>📲 Apps Installed: 0/2 — <button onclick="alert('App download offers coming soon!')">View Offers</button></li>
+        <li>📢 Ads Viewed: 0/10 — <button onclick="alert('Ads section coming soon!')">Earn Now</button></li>
+        <li>👥 Referrals: 0 — <button onclick="alert('Referral feature coming soon!')">Invite Friends</button></li>
+      </ul>
+
+      <button onclick="logout()">Logout</button>
+    </div>
+  </main>
+
+  <script>
+    function showSignup() {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('signup-section').style.display = 'block';
+      document.getElementById('dashboard-section').style.display = 'none';
+    }
+    function showLogin() {
+      document.getElementById('login-section').style.display = 'block';
+      document.getElementById('signup-section').style.display = 'none';
+      document.getElementById('dashboard-section').style.display = 'none';
+    }
+
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      if(email && password) {
+        // In real app, authenticate with backend
+        alert('Logged in successfully!');
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('dashboard-section').style.display = 'block';
+        // Set dummy wallet balance
+        document.getElementById('wallet-balance').innerText = '150';
+      } else {
+        alert('Please enter email and password');
+      }
+    }
+
+    function signup() {
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+      if(email && password) {
+        alert('Sign up successful! Please login now.');
+        showLogin();
+      } else {
+        alert('Please enter email and password');
+      }
+    }
+
+    function logout() {
+      alert('Logged out');
+      showLogin();
+    }
+  </script>
+
+</body>
+</html>
