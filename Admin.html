@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyEarnBD Admin Panel</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f8f8f8; }
+    header { background: #2c3e50; color: white; padding: 20px; text-align: center; font-size: 24px; }
+    nav { background: #34495e; padding: 10px; text-align: center; }
+    nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; }
+    .container { padding: 20px; }
+    .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    button { padding: 6px 14px; margin: 2px; border: none; border-radius: 4px; cursor: pointer; }
+    .approve { background: #27ae60; color: white; }
+    .reject { background: #e74c3c; color: white; }
+  </style>
+</head>
+<body>
+
+  <header>EasyEarnBD - Moderator Panel</header>
+
+  <nav>
+    <a href="#">Withdraw Requests</a>
+    <a href="#">User Management</a>
+    <a href="#">Task Manager</a>
+    <a href="#">Proof Review</a>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Withdraw Requests</h2>
+      <table>
+        <thead>
+          <tr><th>User Email</th><th>Amount</th><th>Method</th><th>Number</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>user1@gmail.com</td>
+            <td>৳200</td>
+            <td>bKash</td>
+            <td>017XXXXXXXX</td>
+            <td>
+              <button class="approve">Approve</button>
+              <button class="reject">Reject</button>
+            </td>
+          </tr>
+          <!-- More requests dynamically here -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Add New Task</h2>
+      <form onsubmit="alert('Task Added Successfully!'); return false;">
+        <label>Task Title: <input type="text" required style="width: 100%; margin: 5px 0;" /></label><br>
+        <label>Type: 
+          <select style="width: 100%; margin: 5px 0;">
+            <option>Survey</option>
+            <option>App Download</option>
+            <option>Ad Click</option>
+            <option>Video Watch</option>
+          </select>
+        </label><br>
+        <label>Reward (৳): <input type="number" required style="width: 100%; margin: 5px 0;" /></label><br>
+        <label>Proof Required: 
+          <select style="width: 100%; margin: 5px 0;">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label><br>
+        <button class="approve">Add Task</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Proof Review</h2>
+      <table>
+        <thead>
+          <tr><th>User</th><th>Task</th><th>Screenshot</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>user2@gmail.com</td>
+            <td>Install App</td>
+            <td><a href="#" target="_blank">View</a></td>
+            <td>
+              <button class="approve">Approve</button>
+              <button class="reject">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
