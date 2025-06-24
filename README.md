@@ -1,1 +1,1 @@
- http//easyearnbd.com
+easyearnbd
